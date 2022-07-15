@@ -1,5 +1,5 @@
-# IMP NOTE: This is the cleaned up project taken from a link provided by the Udemy Course Instructor so that we can start from the same page.
-# Udemy Course Link: https://www.udemy.com/course/react-the-complete-guide-incl-redux/
+### IMP NOTE: This is the cleaned up project taken from a link provided by the Udemy Course Instructor so that we can start from the same page.
+#### Udemy Course Link: https://www.udemy.com/course/react-the-complete-guide-incl-redux/
 
 
 # Getting Started with Create React App
