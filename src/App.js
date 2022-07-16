@@ -35,7 +35,8 @@ const expenses = [
 function App() {
   return (
     <div>
-      <Expenses expenses={expenses}/>
+       <h2>Let's get started!</h2>
+      <Expenses items={expenses}/>
     </div>
   );
 }
