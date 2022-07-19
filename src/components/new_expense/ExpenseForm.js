@@ -53,26 +53,35 @@ const ExpenseForm = () => {
 		// });
 	};
 
-  const submitHandler = (event) => {
+	const submitHandler = (event) => {
+		// Prevents the default behavior of the submit button action. The default behavior is to send a request to the server hosting this webpage and form
+		// and then refreshes the page.
+		// We want to disable this default behavior so that the page does not reload and add our own custom implementation.
+		event.preventDefault();
 
-    // Prevents the default behavior of the submit button action. The default behavior is to send a request to the server hosting this webpage and form
-    // and then refreshes the page.
-    // We want to disable this default behavior so that the page does not reload and add our own custom implementation.
-    event.preventDefault();
+		const expenseData = {
+			title: enteredTitle,
+			amount: enteredAmount,
+			date: new Date(enteredDate),
+		};
 
-    const expenseData = {
-      title: enteredTitle,
-      amount: enteredAmount,
-      date: new Date(enteredDate)
-    }
-  }
+		console.log("User entered expense data : ", expenseData);
+
+		setEnteredAmount("");
+		setEnteredDate("");
+		setEnteredTitle("");
+	};
 
 	return (
 		<form onSubmit={submitHandler}>
 			<div className="new-expense__controls">
 				<div className="new-expense__control">
 					<label>Title</label>
-					<input type="text" onChange={titleChangeHandler} />
+					<input
+						type="text"
+						value={enteredTitle}
+						onChange={titleChangeHandler}
+					/>
 				</div>
 				<div className="new-expense__control">
 					<label>Amount</label>
@@ -80,6 +89,7 @@ const ExpenseForm = () => {
 						type="number"
 						min="0.01"
 						step="0.01"
+						value={enteredAmount}
 						onChange={amountChangeHandler}
 					/>
 				</div>
@@ -89,6 +99,7 @@ const ExpenseForm = () => {
 						type="date"
 						min="2019-01-01"
 						max="2022-12-31"
+						value={enteredDate}
 						onChange={dateChangeHandler}
 					/>
 				</div>
