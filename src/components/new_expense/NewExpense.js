@@ -11,6 +11,7 @@ const NewExpense = (props) => {
       id: Math.random().toString()
     }
     
+    // onAddExpense is a prop set on the NewExpense custom component used in App.js
     props.onAddExpense(expenseData);
   }
 
