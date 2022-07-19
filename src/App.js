@@ -41,20 +41,12 @@ const App = () => {
   
   const addExpenseHandler = (expense) => {
     setExpenses(existingExpenses => [expense, ...existingExpenses]);
-    INITIAL_EXPENSES.push(expense);
   };
-
-  const filterExpensesHandler = (selectedYear) => {
-    const filteredExpenses = INITIAL_EXPENSES.filter(expenseItem => expenseItem.date.getFullYear().toString() === selectedYear);
-
-    // Setting these filtered expenses does not depend on the previous state of the component.
-    setExpenses(filteredExpenses);
-  }
 
 	return (
 		<div>
 			<NewExpense onAddExpense={addExpenseHandler} />
-			<Expenses items={expenses} onFilterExpenses={filterExpensesHandler} />
+			<Expenses items={expenses} />
 		</div>
 	);
 };
