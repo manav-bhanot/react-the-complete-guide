@@ -3,18 +3,18 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
-	// const [enteredTitle, setEnteredTitle] = useState("");
-	// const [enteredAmount, setEnteredAmount] = useState("");
-	// const [enteredDate, setEnteredDate] = useState("");
+	const [enteredTitle, setEnteredTitle] = useState("");
+	const [enteredAmount, setEnteredAmount] = useState("");
+	const [enteredDate, setEnteredDate] = useState("");
 
-	const [userInput, setUserInput] = useState({
-		enteredTitle: "",
-		enteredAmount: "",
-		enteredDate: "",
-	});
+	// const [userInput, setUserInput] = useState({
+	// 	enteredTitle: "",
+	// 	enteredAmount: "",
+	// 	enteredDate: "",
+	// });
 
 	const titleChangeHandler = (event) => {
-		// setEnteredTitle(event.target.value);
+		setEnteredTitle(event.target.value);
 
 		// The below is not the best/good option to update the state. Because React schedules the state updates and there could be a chance
 		// that previous state values captured are obsolete.
@@ -24,33 +24,33 @@ const ExpenseForm = () => {
 		// });
 
 		// This is the safer way to ensure that the state update takes the latest values from the previous state
-		setUserInput((prevState) => {
-			return { ...prevState, enteredTitle: event.target.value };
-		});
+		// setUserInput((prevState) => {
+		// 	return { ...prevState, enteredTitle: event.target.value };
+		// });
 	};
 
 	const amountChangeHandler = (event) => {
-		// setEnteredAmount(event.target.value);
+		setEnteredAmount(event.target.value);
 		// setUserInput({
 		// 	...userInput,
 		// 	enteredAmount: event.target.value,
 		// });
 
-		setUserInput((prevState) => {
-			return { ...prevState, enteredAmount: event.target.value };
-		});
+		// setUserInput((prevState) => {
+		// 	return { ...prevState, enteredAmount: event.target.value };
+		// });
 	};
 
 	const dateChangeHandler = (event) => {
-		// setEnteredDate(event.target.value);
+		setEnteredDate(event.target.value);
 		// setUserInput({
 		// 	...userInput,
 		// 	enteredDate: event.target.value,
 		// });
 
-		setUserInput((prevState) => {
-			return { ...prevState, enteredDate: event.target.value };
-		});
+		// setUserInput((prevState) => {
+		// 	return { ...prevState, enteredDate: event.target.value };
+		// });
 	};
 
 	return (
