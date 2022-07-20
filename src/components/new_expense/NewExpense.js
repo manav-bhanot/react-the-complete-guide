@@ -4,7 +4,7 @@ import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
 const NewExpense = (props) => {
-	const [showAddNewExpenseButton, setShowAddNewExpenseButton] = useState(true);
+	const [isEditing, setIsEditing] = useState(false);
 
 	const saveExpenseDataHandler = (enteredExpenseData) => {
 		const expenseData = {
@@ -14,29 +14,30 @@ const NewExpense = (props) => {
 
 		// onAddExpense is a prop set on the NewExpense custom component used in App.js
 		props.onAddExpense(expenseData);
+    setIsEditing(false);
 	};
 
-	const addNewExpenseHandler = (event) => {
-		setShowAddNewExpenseButton(!showAddNewExpenseButton);
+	const addNewExpenseHandler = () => {
+		setIsEditing(true);
 	};
 
-  const cancelSaveExpenseDataHandler = (event) => {
-    setShowAddNewExpenseButton(!showAddNewExpenseButton);
-  }
+	const cancelSaveExpenseDataHandler = () => {
+		setIsEditing(false);
+	};
 
-	if (showAddNewExpenseButton) {
-		return (
-			<div className="new-expense">
+	return (
+		<div className="new-expense">
+			{!isEditing && (
 				<button onClick={addNewExpenseHandler}>Add New Expense</button>
-			</div>
-		);
-	} else {
-    return (
-      <div className="new-expense">
-        <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCancelSaveExpenseData={cancelSaveExpenseDataHandler} />
-      </div>
-    );
-	}
+			)}
+			{isEditing && (
+				<ExpenseForm
+					onSaveExpenseData={saveExpenseDataHandler}
+					onCancel={cancelSaveExpenseDataHandler}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default NewExpense;
